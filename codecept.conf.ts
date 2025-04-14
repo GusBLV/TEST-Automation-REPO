@@ -2,7 +2,7 @@ exports.config = {
   output: './output',
   helpers: {
     WebDriver: {
-      url: 'http://localhost',
+      url: 'https://todo.ly/',
       browser: 'chrome'
     }
   },
