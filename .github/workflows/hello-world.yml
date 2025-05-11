@@ -1,11 +1,16 @@
 name: Hello World Workflow
+
 on:
   push:
     branches:
       - main
+
+env:
+  ENV_NAME: QA
+
 jobs:
   say-hello:
     runs-on: ubuntu-latest
     steps:
-      - name: Print Hello World
-        run: echo "Hello, World!"
+      - name: Print Hello World with environment
+        run: echo "Hello World \"$ENV_NAME\""
