@@ -1,19 +1,18 @@
 name: Hello World Workflow
 
 on:
-  push:
-    branches:
-      - main
-    workflow_dispatch:  # Adds a manual run button in the Actions tab
-
-
-
-env:
-  ENV_NAME: QA
+  workflow_dispatch:  # Manual trigger
 
 jobs:
   say-hello:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        env_name: [QA, DEV, PROD]
+
+    env:
+      ENV_NAME: ${{ matrix.env_name }}
+
     steps:
       - name: Print Hello World with environment
         run: echo "Hello World \"$ENV_NAME\""
